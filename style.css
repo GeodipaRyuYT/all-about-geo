@@ -1,180 +1,166 @@
-/* GENERAL LAYOUT */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Quicksand:wght@400;600&display=swap');
+
+/* Base layout */
 body {
   margin: 0;
-  font-family: 'Trebuchet MS', sans-serif;
-  background: radial-gradient(circle at top, #0a0a0f, #000);
-  color: #e0e0e0;
-  display: flex;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: #0b0f19;
+  color: #e4e4e4;
   overflow-x: hidden;
-  height: 100vh;
 }
 
-/* MOVING BACKGROUND STARS */
-.stars, .twinkling {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: -1;
-}
-
-.stars {
-  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-  animation: moveStars 200s linear infinite;
-}
-
-.twinkling {
-  background: transparent url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
-  opacity: 0.2;
-  animation: twinkle 40s linear infinite;
-}
-
-@keyframes moveStars {
-  from { background-position: 0 0; }
-  to { background-position: -10000px 10000px; }
-}
-
-@keyframes twinkle {
-  from { opacity: 0.3; }
-  50% { opacity: 0.5; }
-  to { opacity: 0.3; }
-}
-
-/* SIDEBAR */
+/* Sidebar */
 .sidebar {
-  width: 230px;
-  background: rgba(20, 20, 25, 0.95);
-  backdrop-filter: blur(6px);
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(255, 179, 71, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   position: fixed;
-  height: 100%;
-  border-right: 1px solid rgba(255, 179, 71, 0.2);
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 220px;
+  background: rgba(10, 10, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(200, 200, 255, 0.2);
 }
 
 .sidebar h2 {
-  color: #ffb347;
-  text-shadow: 0 0 10px #ffb347;
+  font-family: 'Cinzel Decorative', cursive;
   text-align: center;
-  margin-bottom: 20px;
-  width: 100%;
+  color: #a0a8ff;
+  text-shadow: 0 0 10px #7f8cff;
 }
 
-.sidebar a {
-  color: #ccc;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
   text-decoration: none;
-  margin: 10px 0;
-  padding: 8px 10px;
+  color: #dcdcff;
+  display: block;
+  padding: 8px 15px;
   border-radius: 8px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
-.sidebar a:hover,
-.sidebar a.active {
-  background-color: #333;
-  color: #ffb347;
-  box-shadow: 0 0 10px rgba(255, 179, 71, 0.3);
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: rgba(150, 150, 255, 0.2);
+  color: #ffffff;
+  text-shadow: 0 0 10px #9f9fff;
 }
 
-/* MAIN CONTENT */
-.main-content {
+/* Content area */
+.content {
   margin-left: 260px;
   padding: 40px;
-  overflow-y: auto;
+  position: relative;
+  z-index: 2;
 }
 
+/* Glowing header */
 .glow-title {
   text-align: center;
-  font-size: 2.8em;
-  color: #ffb347;
-  text-shadow: 0 0 10px #ffb347, 0 0 25px #ff8800, 0 0 50px #ff6600;
-  margin-bottom: 40px;
-  animation: pulseGlow 3s infinite alternate;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 3em;
+  color: #b4b9ff;
+  text-shadow: 0 0 15px #a7afff, 0 0 30px #636bff, 0 0 45px #3c47ff;
+  animation: glowPulse 3s infinite alternate;
 }
 
-@keyframes pulseGlow {
-  from { text-shadow: 0 0 8px #ffb347, 0 0 16px #ff8800, 0 0 32px #ff6600; }
-  to { text-shadow: 0 0 18px #ffd580, 0 0 36px #ffb347, 0 0 60px #ff8800; }
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 15px #a7afff, 0 0 30px #636bff, 0 0 45px #3c47ff;
+  }
+  to {
+    text-shadow: 0 0 25px #c6ccff, 0 0 50px #8a92ff, 0 0 70px #5f68ff;
+  }
 }
 
-/* TWO COLUMN LAYOUT */
-.two-columns {
+/* Columns */
+.columns {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
   justify-content: space-around;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .column {
-  flex: 1 1 45%;
-  background: rgba(26, 26, 30, 0.9);
-  padding: 25px;
+  background: rgba(20, 20, 35, 0.6);
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 179, 71, 0.15);
-  text-align: center;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  position: relative;
-  overflow: hidden;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(150, 150, 255, 0.15);
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .column:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 25px rgba(255, 179, 71, 0.4);
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px rgba(170, 170, 255, 0.3);
 }
 
-/* FLOATING ANIMATION */
-.floating {
-  animation: floaty 6s ease-in-out infinite;
-}
-.floating.delay {
-  animation-delay: 3s;
-}
-
-@keyframes floaty {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* COLUMN CONTENT */
 .column h2 {
-  color: #ffb347;
-  margin-bottom: 15px;
-  text-shadow: 0 0 10px rgba(255, 179, 71, 0.5);
+  color: #9fa8ff;
+  font-family: 'Cinzel Decorative', cursive;
+  text-shadow: 0 0 8px #8f96ff;
 }
 
 .column p {
-  font-size: 1.05em;
-  line-height: 1.6em;
-  color: #ddd;
+  line-height: 1.7;
+  font-size: 1.1em;
+  color: #d9daff;
 }
 
-/* IMAGES */
 .column-image {
   width: 100%;
-  max-width: 500px;
   border-radius: 12px;
   margin: 15px 0;
-  box-shadow: 0 0 20px rgba(255, 179, 71, 0.3);
-  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease;
 }
 
 .column-image:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(255, 200, 100, 0.5);
 }
 
-/* SCROLLBAR COSMETICS */
-::-webkit-scrollbar {
-  width: 8px;
+/* Background animation */
+.background {
+  background: url('images/background-stars.jpg') center/cover fixed;
+  filter: brightness(0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-::-webkit-scrollbar-track {
-  background: #111;
+/* Floating particles */
+.particles::before,
+.particles::after {
+  content: '';
+  position: fixed;
+  width: 300%;
+  height: 300%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.2;
+  z-index: 1;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#ffb347, #ff6600);
-  border-radius: 8px;
+@keyframes moveStars {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-500px, -500px); }
 }
