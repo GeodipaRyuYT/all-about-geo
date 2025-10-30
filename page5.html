@@ -1,32 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Soundtrack of My Soul</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="sidebar">
-    <h2>My Realm</h2>
-    <a href="index.html">🏠 Home</a>
-    <a href="page1.html">📜 Page 1</a>
-    <a href="page2.html">⚙️ Page 2</a>
-    <a href="page3.html">🗺️ Page 3</a>
-    <a href="page4.html">🎨 Page 4</a>
-    <a href="page5.html" class="active">🎵 Music</a>
-  </div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Music — The Astral Chronicle</title>
 
-  <div class="main-content">
-    <h1>The Soundtrack of My Soul</h1>
-    <img src="images/music.jpg" alt="Music Image" class="main-image">
-    <p>
-      Every hero has a melody — this is mine. Let the rhythm guide you through the echoes of my journey.
-    </p>
-    <audio controls>
-      <source src="music/theme.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
+  <!-- Main shared stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .music-content {
+      max-width: 900px;
+      margin: 90px auto;
+      padding: 36px;
+      text-align: center;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
+      border: 1px solid rgba(160,160,255,0.04);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 24px rgba(120,130,255,0.04);
+      backdrop-filter: blur(6px);
+      animation: pageFade 900ms ease;
+    }
+
+    .music-content h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.6rem;
+      color: var(--accent-1, #9fa8ff);
+      text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
+      margin-bottom: 22px;
+    }
+
+    .music-content img {
+      width: 320px;
+      max-width: 90%;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 18px rgba(159,168,255,0.4);
+    }
+
+    .music-content img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 24px rgba(200,210,255,0.7);
+    }
+
+    .music-content p {
+      color: #d9daff;
+      line-height: 1.78;
+      font-size: 1.05rem;
+      margin: 26px 0 0;
+      text-align: left;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @keyframes pageFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 860px) {
+      .music-content { margin: 70px 18px; padding: 26px; }
+      .music-content h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background -->
+  <div class="background"></div>
+  <canvas class="particles"></canvas>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>☽ Navigation ☾</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page1.html">Page 1</a></li>
+        <li><a href="page2.html">Page 2</a></li>
+        <li><a href="page3.html">Page 3</a></li>
+        <li><a href="page4.html">Page 4</a></li>
+        <li><a href="page5.html" class="active">Music</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
+    <section class="music-content">
+      <h1>The Symphony Among the Stars</h1>
+
+      <img src="images/music-image.jpg" alt="Celestial music" id="musicImage" />
+
+      <audio id="musicPlayer" src="music/song.mp3"></audio>
+
+      <p>
+        There are melodies that echo not through halls but through galaxies —
+        quiet tones of creation humming in frequencies too vast for mortal ears.
+        When one listens with the soul rather than sound, the stars themselves
+        seem to sing. Each note becomes a shimmer of nebulae; each rest, a pause
+        between worlds. This song, faint and eternal, reminds wanderers that
+        music is not bound by breath or instrument — it is the universe’s way of
+        remembering itself. Sit back, close your eyes, and let the rhythm of the
+        void carry you beyond constellations.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    // Background particle animation
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (ctx) {
+      let stars = [];
+      let mouse = { x: 0, y: 0 };
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          speed: Math.random() * 0.4 + 0.1,
+          twinkle: Math.random()
+        });
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach((star) => {
+          star.twinkle += 0.02;
+          const brightness = 0.7 + 0.3 * Math.sin(star.twinkle);
+          ctx.fillStyle = `rgba(255,255,255,${brightness})`;
+
+          const dx = (star.x - mouse.x) * 0.0005;
+          const dy = (star.y - mouse.y) * 0.0005;
+          star.x -= dx;
+          star.y -= dy;
+
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          star.y += star.speed;
+          if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+          }
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    // Music click play/pause
+    const musicImage = document.getElementById('musicImage');
+    const musicPlayer = document.getElementById('musicPlayer');
+    let playing = false;
+
+    musicImage.addEventListener('click', () => {
+      if (!playing) {
+        musicPlayer.play();
+        playing = true;
+        musicImage.style.boxShadow = '0 0 28px rgba(255,255,180,0.8)';
+        musicImage.style.transform = 'scale(1.07)';
+      } else {
+        musicPlayer.pause();
+        playing = false;
+        musicImage.style.boxShadow = '0 0 18px rgba(159,168,255,0.4)';
+        musicImage.style.transform = 'scale(1.0)';
+      }
+    });
+  </script>
 </body>
 </html>
