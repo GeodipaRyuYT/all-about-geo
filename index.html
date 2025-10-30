@@ -8,7 +8,72 @@
 </head>
 <body>
   <div class="background"></div>
-  <div class="particles"></div>
+  <canvas class="particles"></canvas>
+
+  <script>
+  const canvas = document.querySelector('.particles');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  let mouse = { x: 0, y: 0 };
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Create 200 stars with random positions and speeds
+  for (let i = 0; i < 200; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5 + 0.5,
+      speed: Math.random() * 0.4 + 0.1,
+      twinkle: Math.random(),
+    });
+  }
+
+  // Track mouse movement
+  document.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  // Animate the stars
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach((star) => {
+      // Twinkling effect
+      star.twinkle += 0.02;
+      const brightness = 0.7 + 0.3 * Math.sin(star.twinkle);
+      ctx.fillStyle = `rgba(255,255,255,${brightness})`;
+
+      // Gentle parallax drift based on mouse position
+      const dx = (star.x - mouse.x) * 0.0005;
+      const dy = (star.y - mouse.y) * 0.0005;
+      star.x -= dx;
+      star.y -= dy;
+
+      // Draw star
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Move stars downward (slow fall)
+      star.y += star.speed;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    });
+
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+  </script>
 
   <aside class="sidebar" aria-label="Primary Navigation">
     <h2>☽ Navigation ☾</h2>
