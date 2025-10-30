@@ -1,30 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Beginning</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page 1 - The Astral Chronicle</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* --- Page-specific style --- */
+    .page1-content {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 40px;
+      text-align: center;
+      color: #f5f5f5;
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      animation: fadeIn 2s ease;
+    }
+
+    .page1-content h1 {
+      font-size: 3em;
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff, 0 0 20px #0077ff;
+      margin-bottom: 20px;
+      animation: glowPulse 4s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      from { text-shadow: 0 0 10px #00eaff, 0 0 20px #0077ff; }
+      to { text-shadow: 0 0 20px #00ffff, 0 0 40px #00aaff; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Background Layers -->
+  <div class="background"></div>
+  <canvas class="particles"></canvas>
+
+  <!-- Sidebar Navigation -->
   <div class="sidebar">
-    <h2>My Realm</h2>
-    <a href="index.html">🏠 Home</a>
-    <a href="page1.html" class="active">📜 Page 1</a>
-    <a href="page2.html">⚙️ Page 2</a>
-    <a href="page3.html">🗺️ Page 3</a>
-    <a href="page4.html">🎨 Page 4</a>
-    <a href="page5.html">🎵 Music</a>
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="page1.html" class="active">Page 1</a></li>
+      <li><a href="page2.html">Page 2</a></li>
+      <li><a href="page3.html">Page 3</a></li>
+      <li><a href="page4.html">Page 4</a></li>
+      <li><a href="page5.html">Music</a></li>
+    </ul>
   </div>
 
-  <div class="main-content">
-    <h1>The Beginning</h1>
-    <img src="images/page1.jpg" alt="The Beginning Image" class="main-image">
-    <p>
-      Every story begins with a spark. Mine began in the quiet hours of curiosity,  
-      where imagination met creation. From simple lines of code to worlds of wonder —  
-      this is where it all started.
-    </p>
+  <!-- Main Content -->
+  <div class="content">
+    <div class="page1-content">
+      <h1>The Chronicles of the Celestial Path</h1>
+      <p>
+        In the silent vastness of the night sky, whispers of forgotten constellations echo across the cosmos.
+        Legends speak of a time when the stars themselves danced to the will of mages who once held dominion over light and void alike.
+        Their legacy drifts among the astral winds — glowing runes scattered across galaxies, waiting for someone brave enough to listen.
+      </p>
+      <p>
+        Every traveler who sets foot on the Celestial Path carries a spark of destiny, a fragment of ancient starlight
+        that binds them to the infinite. It is said that those who walk this road long enough may find the doorway to the First Flame,
+        the original light that gave birth to both time and magic. Many have sought it; few have returned.
+      </p>
+      <p>
+        But for you, the journey is only beginning. The nebula hums faintly in your chest, and the stars pulse brighter at your name.
+        You raise your gaze to the endless sky, heart steady, and step forward — toward the unknown, toward your own legend.
+      </p>
+    </div>
   </div>
+
+  <!-- Starfield Script -->
+  <script>
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let mouse = { x: 0, y: 0 };
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5 + 0.5,
+        speed: Math.random() * 0.4 + 0.1,
+        twinkle: Math.random(),
+      });
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach((star) => {
+        star.twinkle += 0.02;
+        const brightness = 0.7 + 0.3 * Math.sin(star.twinkle);
+        ctx.fillStyle = `rgba(255,255,255,${brightness})`;
+
+        const dx = (star.x - mouse.x) * 0.0005;
+        const dy = (star.y - mouse.y) * 0.0005;
+        star.x -= dx;
+        star.y -= dy;
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
 </body>
 </html>
