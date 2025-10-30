@@ -34,11 +34,15 @@ body {
   background: url('images/background-stars.jpg') center/cover fixed no-repeat;
   filter: brightness(0.32);
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
   z-index: 0;
+  pointer-events: none;
 }
 
+/* Moving star grid shimmer layer */
 .particles::before,
 .particles::after {
   content: '';
@@ -52,11 +56,34 @@ body {
   animation: moveParticles 80s linear infinite;
   opacity: 0.12;
   z-index: 1;
+  pointer-events: none;
 }
 
+/* Add a second subtle grid moving in the opposite direction */
+.particles::after {
+  animation: moveParticlesReverse 90s linear infinite;
+  opacity: 0.08;
+}
+
+/* Canvas for floating starfield particles */
+canvas.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Background grid animations */
 @keyframes moveParticles {
-  from { transform: translate(0, 0) rotate(0deg); }
-  to { transform: translate(-400px, -400px) rotate(360deg); }
+  from { transform: translate(0, 0); }
+  to { transform: translate(50px, 50px); }
+}
+@keyframes moveParticlesReverse {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-50px, -50px); }
 }
 
 /* --------- SIDEBAR --------- */
@@ -70,7 +97,7 @@ body {
   background: linear-gradient(180deg, rgba(12,12,20,0.92), rgba(10,10,18,0.88));
   border-right: 1px solid rgba(160, 160, 255, 0.06);
   backdrop-filter: blur(8px);
-  z-index: 9; /* put sidebar above background but below content if needed */
+  z-index: 10; /* put sidebar above background but below content if needed */
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -141,7 +168,7 @@ body {
 .content {
   margin-left: calc(var(--sidebar-width) + 20px);
   padding: 44px 40px;
-  z-index: 5;
+  z-index: 11;
   position: relative;
   min-height: 100vh;
 }
@@ -247,3 +274,21 @@ body {
 }
 
 /* small cosmetic: focused*
+
+/* --- FIX: ensure background never blocks clicks --- */
+.background,
+.particles {
+  pointer-events: none; /* allows clicks to pass through */
+  z-index: 0; /* always below sidebar/content */
+}
+
+/* --- FIX: make sure sidebar & content are clickable above all --- */
+.sidebar {
+  z-index: 10; /* was 9 */
+}
+
+.content {
+  position: relative;
+  z-index: 11; /* make sure text & links are on top of stars */
+}
+
