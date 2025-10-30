@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to My World</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="twinkling"></div>
+  <div class="background"></div>
+  <div class="particles"></div>
 
-  <div class="sidebar">
-    <h2>My Realm</h2>
-    <a href="index.html" class="active">🏠 Home</a>
-    <a href="page1.html">📜 Page 1</a>
-    <a href="page2.html">⚙️ Page 2</a>
-    <a href="page3.html">🗺️ Page 3</a>
-    <a href="page4.html">🎨 Page 4</a>
-    <a href="page5.html">🎵 Music</a>
-  </div>
+  <aside class="sidebar">
+    <h2>☽ Navigation ☾</h2>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">Page 1</a></li>
+      <li><a href="craft.html">Page 2</a></li>
+      <li><a href="journey.html">Page 3</a></li>
+      <li><a href="gallery.html">Page 4</a></li>
+      <li><a href="music.html">Music</a></li>
+    </ul>
+  </aside>
 
-  <div class="main-content">
-    <h1 class="glow-title">Welcome to My World</h1>
+  <main class="content">
+    <header>
+      <h1 class="glow-title">Welcome to My World</h1>
+    </header>
 
-    <div class="two-columns">
-      <!-- Left Column -->
-      <div class="column floating">
-        <img src="images/main-top-left.jpg" alt="Top Left Image" class="column-image top">
-        <h2>The Dreamer’s Path</h2>
+    <section class="columns">
+      <div class="column">
+        <img src="images/top-left.jpg" alt="Top left image" class="column-image top" />
+        <h2>Who I Am</h2>
         <p>
-          Born under moonlit skies, I wander between realms of thought and wonder.  
-          My journey began with whispers of code and crescents of creativity,  
-          chasing inspiration through starlit silence.
+          A wanderer of both dreams and data, walking between realms of logic and imagination.
+          I weave code and creativity together, crafting worlds within worlds — and sometimes,
+          those worlds spill into reality.
         </p>
-        <img src="images/main-bottom-left.jpg" alt="Bottom Left Image" class="column-image bottom">
+        <p>
+          This site is my sanctuary — where I share fragments of the journey, lessons from the
+          stars, and the quiet poetry of pixels.
+        </p>
+        <img src="images/bottom-left.jpg" alt="Bottom left image" class="column-image bottom" />
       </div>
 
-      <!-- Right Column -->
-      <div class="column floating delay">
-        <img src="images/main-top-right.jpg" alt="Top Right Image" class="column-image top">
-        <h2>The Forge of Creation</h2>
+      <div class="column">
+        <img src="images/top-right.jpg" alt="Top right image" class="column-image top" />
+        <h2>My Philosophy</h2>
         <p>
-          Within shadows and embers, I forge new worlds.  
-          My creations are spells of color, music, and motion —  
-          fragments of who I am, waiting to meet the eyes of wanderers like you.
+          I believe beauty lies in contrast — in shadows that highlight the light.
+          Every line of code, every brushstroke, every note of music is a small rebellion
+          against the void.
         </p>
-        <img src="images/main-bottom-right.jpg" alt="Bottom Right Image" class="column-image bottom">
+        <p>
+          If you’ve found your way here, take a moment to breathe. Wander through the pages.
+          Maybe you’ll find a reflection of yourself in the stories I tell.
+        </p>
+        <img src="images/bottom-right.jpg" alt="Bottom right image" class="column-image bottom" />
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </body>
 </html>
