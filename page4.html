@@ -1,29 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Gallery</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Shape</title>
+
+  <!-- Main site stylesheet (must exist and be the one used by index.html) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Small page-specific styles that MATCH the main theme (no body overrides) -->
+  <style>
+    /* Keep font-family consistent with style.css */
+    .page1-content {
+      max-width: 900px;
+      margin: 90px auto;
+      padding: 36px;
+      text-align: left;
+      color: inherit; /* inherit the main theme color */
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
+      border: 1px solid rgba(160,160,255,0.04);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 24px rgba(120,130,255,0.04);
+      backdrop-filter: blur(6px);
+      animation: pageFade 900ms ease;
+    }
+
+    .page1-content h1 {
+      margin: 0 0 18px 0;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.6rem;
+      color: var(--accent-1, #9fa8ff);
+      text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
+      line-height: 1.02;
+      letter-spacing: 0.6px;
+    }
+
+    .page1-content p {
+      color: #d9daff; /* matches column paragraph color */
+      line-height: 1.78;
+      font-size: 1.05rem;
+      margin: 14px 0;
+    }
+
+    /* subtle entry animation */
+    @keyframes pageFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* responsive spacing on small screens */
+    @media (max-width: 860px) {
+      .page1-content { margin: 70px 18px; padding: 26px; }
+      .page1-content h1 { font-size: 2.2rem; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>My Realm</h2>
-    <a href="index.html">🏠 Home</a>
-    <a href="page1.html">📜 Page 1</a>
-    <a href="page2.html">⚙️ Page 2</a>
-    <a href="page3.html">🗺️ Page 3</a>
-    <a href="page4.html" class="active">🎨 Page 4</a>
-    <a href="page5.html">🎵 Music</a>
-  </div>
+  <!-- Background & particle canvas (same as index) -->
+  <div class="background"></div>
+  <canvas class="particles"></canvas>
 
-  <div class="main-content">
-    <h1>The Gallery</h1>
-    <img src="images/page4.jpg" alt="Gallery Image" class="main-image">
-    <p>
-      A glimpse into my creations — frozen moments of imagination and effort.  
-      Each piece holds a whisper of my thoughts, a flicker of emotion captured in time.
-    </p>
-  </div>
+  <!-- Sidebar (same structure as index.html) -->
+  <aside class="sidebar" aria-label="Primary Navigation">
+    <h2>☽ Navigation ☾</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page1.html">UTS-1 All About Me 🌠</a></li>
+        <li><a href="page5.html">UTS-2 Songs for you💫</a></li>
+        <li><a href="page3.html">UTS-3 My Stories for You🌙</a></li>
+        <li><a href="page4.html" class="active">UTS-4 My Shape🔮</a></li>
+        <li><a href="page2.html">UTS-5 My Personal Review✨</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main content area (uses same .content from style.css) -->
+  <main class="content">
+    <section class="page1-content" role="article" aria-labelledby="page1-title">
+      <h1 id="page1-title">My Shape</h1>
+      
+      <h2>1. Spiritual Gifts (S) – Kelebihan Khas</h2>
+      <p>Aku memiliki kemampuan untuk membaca suasana—baik dalam diri sendiri maupun di sekitar. Ada kecenderungan dalam diriku untuk melihat hal-hal secara mendalam, mencari makna di balik pola, dan memahami emosi yang sering kali tak diucapkan.</p>
+      <p>Dalam ketenangan, aku mampu menganalisis keadaan dengan jernih. Mungkin aku tidak selalu cepat mengambil keputusan, tapi aku selalu berusaha memahaminya dari hati dan pikiran sekaligus.</p>
+      <p>Aku bukan hanya pengamat, tapi juga perenung: seseorang yang mencoba memahami dunia bukan untuk menilai, melainkan untuk mengerti.</p>
+      
+      
+      <h2>2. Heart (H) – Nilai Inti & Gairah</h2>
+      <p>Nilai yang menuntunku adalah kelembutan dan empati — dua hal yang kuanggap penting di dunia yang sering terburu-buru. Aku percaya bahwa memahami orang lain adalah bentuk tertinggi dari kecerdasan.</p>
+      <p>Aku menemukan semangat dalam hal-hal yang membuatku merasa terhubung: menggambar perasaan yang sulit diucapkan, menulis kata-kata yang mungkin bisa menyentuh seseorang, atau sekadar bermain untuk memahami dunia dari sudut pandang lain.</p>
+      <p>Selama yang kulakukan bisa membantu, walau kecil, itu sudah cukup bagiku.</p>
+      
+      
+      <h2>3. Abilities (A) – Keterampilan Utama</h2>
+      <p>Keterampilan teknisku berada pada ranah data dan desain — mengolah, membaca pola, serta menampilkan hasilnya dalam bentuk yang indah dan bermakna. Aku juga nyaman dengan matematika dan animasi, dua hal yang sama-sama menuntut logika sekaligus kreativitas.</p>
+      <p>Dalam ranah personal, aku memiliki kemampuan untuk membaca suasana, menganalisis kemungkinan, dan mengamati dengan teliti sebelum bertindak. Dalam tim, aku bukan pemimpin yang lantang, tapi pendengar yang setia; bukan pengarah, tapi pelaksana yang memastikan segalanya berjalan dengan damai dan teratur.</p>
+      
+      
+      <h2>4. Personality (P) – Kepribadian</h2>
+      <p>Aku seorang ISFJ — tenang, penuh empati, dan lebih suka bekerja dalam keseimbangan antara struktur dan kebebasan. Aku tidak suka dikurung oleh detail kecil, tapi aku juga tidak nyaman dalam kekacauan tanpa arah.</p>
+      <p>Aku belajar dengan cara mengalami: mencoba, gagal, lalu merenungi maknanya. Dalam membuat keputusan, aku berusaha menyeimbangkan logika dan perasaan — sebab aku tahu, keduanya dibutuhkan untuk benar-benar memahami hidup.</p>
+      
+      
+      <h2>5. Experiences (E) – Pengalaman & Pelajaran Hidup</h2>
+      <p>Saat aku didiagnosa dengan autism, dunia terasa berubah — bukan menjadi lebih sempit, tapi justru lebih masuk akal. Aku mulai memahami kenapa aku sering khawatir, kenapa aku butuh waktu lebih lama untuk menyesuaikan diri, dan kenapa aku begitu peka pada hal-hal kecil yang orang lain mungkin abaikan.</p>
+      <p>Aku belajar bahwa tidak semua perbedaan adalah kekurangan. Kadang, justru di sanalah keunikan berakar. Aku masih takut, tentu saja, tapi kini aku tahu: keberanian bukan berarti tak merasa takut, melainkan tetap melangkah walau takut itu ada.</p>
+      
+      
+      <h1>Piagam Diri (Self-Charter)</h1>
+      <p><strong>Misi Hidup:</strong></p>
+      <p>Aku ingin hidup dengan kesadaran — bukan sekadar bergerak, tapi benar-benar hadir. Aku ingin memahami dunia lewat empati, menafsirkan kompleksitas lewat logika, dan menciptakan sesuatu yang membuat orang lain merasa dimengerti.</p>
+      
+      
+      <p><strong>Nilai Inti:</strong></p>
+      <p>Kelembutan, kejujuran, dan keseimbangan. Aku percaya bahwa kebenaran tanpa empati bisa melukai, tapi empati tanpa kejujuran juga bisa menyesatkan. Di antara keduanya, aku ingin berdiri teguh.</p>
+      
+      
+      <p><strong>Peran Inti:</strong></p>
+      <p>Sebagai pendengar dan penerjemah makna, aku ingin menjembatani antara rasa dan logika — antara mereka yang sulit berbicara dan dunia yang sulit memahami.</p>
+      
+      
+      <p><strong>Kompas Keputusan:</strong></p>
+      <p>Jika sesuatu membuatku kehilangan kedamaian, maka itu bukan jalanku. Aku akan memilih yang menumbuhkan, meski perlahan; yang bermakna, meski sepi.</p>
+      
+      
+      <p><strong>Janji Pelayanan:</strong></p>
+      <p>Aku akan memakai kepekaanku untuk membuat hal-hal yang rumit jadi lebih lembut, dan hal-hal yang sulit jadi lebih mudah dimengerti. Aku ingin menghadirkan ketenangan lewat karya — entah itu gambar, tulisan, atau sekadar kata sederhana yang menenangkan hati orang lain.</p>
+      
+      
+      <p><strong>Batasan:</strong></p>
+      <p>Aku tidak ingin hidup hanya untuk memenuhi ekspektasi. Aku akan terus menjaga diriku agar tak kehilangan arah demi validasi, dan agar tetap mampu beristirahat di tengah ambisi.</p>
+      
+      
+      <h1>Pernyataan Misi Pribadi</h1>
+      <p>"Aku berkomitmen untuk terus belajar memahami — diri sendiri, orang lain, dan dunia yang tak selalu mudah dijelaskan."</p>
+      <p>"Aku akan berjalan perlahan, tapi pasti; berbuat kecil, tapi dengan hati."</p>
+      <p>"Aku ingin setiap langkahku membawa makna, meski tak selalu terlihat oleh mata."</p>
+      
+      
+      <h1>4.4 Identitas Naratif</h1>
+      <p>Aku tidak terbentuk oleh kecepatan, tapi oleh kedalaman. Aku bukan orang yang cepat mengambil keputusan, tapi aku selalu berusaha mengambil yang paling bijak. Dunia mungkin berjalan terlalu cepat, tapi aku percaya, ada kekuatan dalam langkah yang tenang.</p>
+      <p>Aku menemukan makna dalam hal-hal kecil — dalam cahaya sore yang lembut, dalam suara hujan, dalam kata-kata yang pelan tapi tulus. Aku belajar bahwa memahami bukan berarti memecahkan, melainkan menemani.</p>
+      <p>Aku tahu aku tidak sempurna — tapi aku juga tahu bahwa setiap bagian dari diriku, bahkan yang rapuh, punya tempatnya sendiri. Aku ingin hidup sebagai seseorang yang lembut tapi kuat; tenang, tapi tetap berani belajar menghadapi dunia dengan mata terbuka dan hati yang peka.</p>
+    </section>
+  </main>
+
+  <!-- Starfield script (same as homepage) -->
+  <script>
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (ctx) {
+      let stars = [];
+      let mouse = { x: 0, y: 0 };
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          speed: Math.random() * 0.4 + 0.1,
+          twinkle: Math.random()
+        });
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach((star) => {
+          star.twinkle += 0.02;
+          const brightness = 0.7 + 0.3 * Math.sin(star.twinkle);
+          ctx.fillStyle = `rgba(255,255,255,${brightness})`;
+
+          const dx = (star.x - mouse.x) * 0.0005;
+          const dy = (star.y - mouse.y) * 0.0005;
+          star.x -= dx;
+          star.y -= dy;
+
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          star.y += star.speed;
+          if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+          }
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
 </body>
 </html>
