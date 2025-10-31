@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Page 1 — The Astral Chronicle</title>
+  <title>Data Archives — The Astral Chronicle</title>
 
-  <!-- Main site stylesheet (must exist and be the one used by index.html) -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Small page-specific styles that MATCH the main theme (no body overrides) -->
   <style>
-    /* Keep font-family consistent with style.css */
-    .page1-content {
+    .sheet-content {
       max-width: 900px;
       margin: 90px auto;
       padding: 36px;
-      text-align: left;
-      color: inherit; /* inherit the main theme color */
+      text-align: center;
+      color: inherit;
       background: rgba(255, 255, 255, 0.03);
       border-radius: 14px;
       border: 1px solid rgba(160,160,255,0.04);
@@ -25,73 +22,126 @@
       animation: pageFade 900ms ease;
     }
 
-    .page1-content h1 {
-      margin: 0 0 18px 0;
+    .sheet-content h1 {
       font-family: 'Cinzel Decorative', cursive;
       font-size: 2.6rem;
       color: var(--accent-1, #9fa8ff);
       text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
-      line-height: 1.02;
-      letter-spacing: 0.6px;
+      margin-bottom: 20px;
     }
 
-    .page1-content p {
-      color: #d9daff; /* matches column paragraph color */
+    .sheet-content p {
+      color: #d9daff;
       line-height: 1.78;
       font-size: 1.05rem;
-      margin: 14px 0;
+      margin: 0 auto 30px;
+      max-width: 700px;
     }
 
-    /* subtle entry animation */
+    /* ✨ Glowing floating sheet frame */
+    .sheet-frame {
+      position: relative;
+      display: inline-block;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(150,150,255,0.4);
+      background: rgba(10, 10, 30, 0.5);
+      animation: floatBox 6s ease-in-out infinite;
+    }
+
+    .sheet-frame::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(
+        60deg,
+        rgba(180,180,255,0.4),
+        rgba(100,100,255,0.3),
+        rgba(255,255,255,0.2),
+        rgba(120,120,255,0.4)
+      );
+      background-size: 400% 400%;
+      border-radius: 18px;
+      z-index: 1;
+      filter: blur(3px);
+      animation: glowMove 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    iframe {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 14px;
+      z-index: 2;
+      backdrop-filter: blur(4px);
+    }
+
     @keyframes pageFade {
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* responsive spacing on small screens */
+    @keyframes floatBox {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes glowMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     @media (max-width: 860px) {
-      .page1-content { margin: 70px 18px; padding: 26px; }
-      .page1-content h1 { font-size: 2.2rem; text-align: center; }
+      .sheet-content { margin: 70px 18px; padding: 26px; }
+      .sheet-content h1 { font-size: 2.2rem; }
+      iframe { height: 360px; }
     }
   </style>
 </head>
+
 <body>
-  <!-- Background & particle canvas (same as index) -->
   <div class="background"></div>
   <canvas class="particles"></canvas>
 
-  <!-- Sidebar (same structure as index.html) -->
-  <aside class="sidebar" aria-label="Primary Navigation">
+  <!-- Sidebar -->
+  <aside class="sidebar">
     <h2>☽ Navigation ☾</h2>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="page1.html">UTS-1 All About Me 🌠</a></li>
-        <li><a href="page5.html">UTS-2 Songs for you💫</a></li>
-        <li><a href="page3.html">UTS-3 My Stories for You🌙</a></li>
-        <li><a href="page4.html">UTS-4 My Shape🔮</a></li>
-        <li><a href="page2.html" class="active">UTS-5 My Personal Review✨</a></li>
+        <li><a href="page1.html">Page 1</a></li>
+        <li><a href="page2.html">Page 2</a></li>
+        <li><a href="page3.html">Page 3</a></li>
+        <li><a href="page4.html" class="active">Data</a></li>
+        <li><a href="page5.html">Music</a></li>
       </ul>
     </nav>
   </aside>
 
-  <!-- Main content area (uses same .content from style.css) -->
+  <!-- Main Content -->
   <main class="content">
-    <section class="page1-content" role="article" aria-labelledby="page1-title">
-      <h1 id="page1-title">Personal Review</h1>
-
+    <section class="sheet-content">
+      <h1>The Data Archives of the Cosmos</h1>
       <p>
-        Siapakah aku? Siapakah sosok bernama Geodipa Ryu ini? Seumur hidup aku mencari dari jawaban ini, tapi sungguh aku belum menemukan jawabannya. 
-        Bagi sebagian orang, aku adalah sosok yang hebat. Sebuah bintang yang mereka kejar di langit malam, Cahaya yang menuntun, arah yang menginspirasi. 
-        Namun bagi sebagian lainnya, aku hanyalah makhluk yang rapuh, yang berlari dari bayang-bayangnya sendiri, seekor binatang yang terperangkap dalam kulitnya, 
-        mencakar-cakar dinding jiwanya yang sempit. Ada yang melihatku sebagai periang, penyatu lingkaran persahabatan, tawa yang menjembatani perbedaan. 
-        Tapi ada pula yang melihatku sebaliknya, sebagai badai kecil yang menghancurkan keheningan, sebagai sumber gelap yang perlahan meretakkan keakraban.
+        Within these rows lie traces of observation — fragments of celestial patterns recorded by those who sought to measure the infinite.
+        Each number, each word, is a whisper from the stars themselves, waiting to be studied, decoded, and transformed into understanding.
+        Peer into the archive and see what knowledge the constellations have offered this time.
       </p>
+
+      <div class="sheet-frame">
+        <!-- Replace the link below with your published Google Sheet link -->
+        <iframe 
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQRSY7Yj9iG2yYb0Rz9TstPks8afKX1qCvqT2xGup3Jv8O09_RJmHYtCJXEzAg2vQ/pubhtml?widget=true&amp;headers=false">
+        </iframe>
+      </div>
     </section>
   </main>
 
-  <!-- Starfield script (same as homepage) -->
   <script>
+    // 🌟 Starfield animation (same as home)
     const canvas = document.querySelector('.particles');
     const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
     if (ctx) {
