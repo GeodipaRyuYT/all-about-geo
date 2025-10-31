@@ -1,30 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Journey</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page 1 — The Astral Chronicle</title>
+
+  <!-- Main site stylesheet (must exist and be the one used by index.html) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Small page-specific styles that MATCH the main theme (no body overrides) -->
+  <style>
+    /* Keep font-family consistent with style.css */
+    .page1-content {
+      max-width: 900px;
+      margin: 90px auto;
+      padding: 36px;
+      text-align: left;
+      color: inherit; /* inherit the main theme color */
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
+      border: 1px solid rgba(160,160,255,0.04);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 24px rgba(120,130,255,0.04);
+      backdrop-filter: blur(6px);
+      animation: pageFade 900ms ease;
+    }
+
+    .page1-content h1 {
+      margin: 0 0 18px 0;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.6rem;
+      color: var(--accent-1, #9fa8ff);
+      text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
+      line-height: 1.02;
+      letter-spacing: 0.6px;
+    }
+
+    .page1-content p {
+      color: #d9daff; /* matches column paragraph color */
+      line-height: 1.78;
+      font-size: 1.05rem;
+      margin: 14px 0;
+    }
+
+    /* subtle entry animation */
+    @keyframes pageFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* responsive spacing on small screens */
+    @media (max-width: 860px) {
+      .page1-content { margin: 70px 18px; padding: 26px; }
+      .page1-content h1 { font-size: 2.2rem; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>My Realm</h2>
-    <a href="index.html">🏠 Home</a>
-    <a href="page1.html">📜 Page 1</a>
-    <a href="page2.html">⚙️ Page 2</a>
-    <a href="page3.html" class="active">🗺️ Page 3</a>
-    <a href="page4.html">🎨 Page 4</a>
-    <a href="page5.html">🎵 Music</a>
-  </div>
+  <!-- Background & particle canvas (same as index) -->
+  <div class="background"></div>
+  <canvas class="particles"></canvas>
 
-  <div class="main-content">
-    <h1>The Journey</h1>
-    <img src="images/page3.jpg" alt="Journey Image" class="main-image">
-    <p>
-      The road winds endlessly — filled with challenges, discoveries,  
-      and the quiet satisfaction of progress. Every line of code, every brushstroke,  
-      is a footprint along this ever-twisting path.
-    </p>
-  </div>
+  <!-- Sidebar (same structure as index.html) -->
+  <aside class="sidebar" aria-label="Primary Navigation">
+    <h2>☽ Navigation ☾</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page1.html">UTS-1 All About Me 🌠</a></li>
+        <li><a href="page5.html">UTS-2 Songs for you💫</a></li>
+        <li><a href="page3.html" class="active">UTS-3 My Stories for You🌙</a></li>
+        <li><a href="page4.html">UTS-4 My Shape🔮</a></li>
+        <li><a href="page2.html">UTS-5 My Personal Review✨</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main content area (uses same .content from style.css) -->
+  <main class="content">
+    <section class="page1-content" role="article" aria-labelledby="page1-title">
+      <h1 id="page1-title">Stories for You</h1>
+
+      <p>
+        Siapakah aku? Siapakah sosok bernama Geodipa Ryu ini? Seumur hidup aku mencari dari jawaban ini, tapi sungguh aku belum menemukan jawabannya. 
+        Bagi sebagian orang, aku adalah sosok yang hebat. Sebuah bintang yang mereka kejar di langit malam, Cahaya yang menuntun, arah yang menginspirasi. 
+        Namun bagi sebagian lainnya, aku hanyalah makhluk yang rapuh, yang berlari dari bayang-bayangnya sendiri, seekor binatang yang terperangkap dalam kulitnya, 
+        mencakar-cakar dinding jiwanya yang sempit. Ada yang melihatku sebagai periang, penyatu lingkaran persahabatan, tawa yang menjembatani perbedaan. 
+        Tapi ada pula yang melihatku sebaliknya, sebagai badai kecil yang menghancurkan keheningan, sebagai sumber gelap yang perlahan meretakkan keakraban.
+      </p>
+    </section>
+  </main>
+
+  <!-- Starfield script (same as homepage) -->
+  <script>
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (ctx) {
+      let stars = [];
+      let mouse = { x: 0, y: 0 };
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          speed: Math.random() * 0.4 + 0.1,
+          twinkle: Math.random()
+        });
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach((star) => {
+          star.twinkle += 0.02;
+          const brightness = 0.7 + 0.3 * Math.sin(star.twinkle);
+          ctx.fillStyle = `rgba(255,255,255,${brightness})`;
+
+          const dx = (star.x - mouse.x) * 0.0005;
+          const dy = (star.y - mouse.y) * 0.0005;
+          star.x -= dx;
+          star.y -= dy;
+
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          star.y += star.speed;
+          if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+          }
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
 </body>
 </html>
