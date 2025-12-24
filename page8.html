@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Who am I?</title>
+
+  <!-- Main site stylesheet (must exist and be the one used by index.html) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Small page-specific styles that MATCH the main theme (no body overrides) -->
+  <style>
+    /* Keep font-family consistent with style.css */
+    .page1-content {
+      max-width: 900px;
+      margin: 90px auto;
+      padding: 36px;
+      text-align: left;
+      color: inherit; /* inherit the main theme color */
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
+      border: 1px solid rgba(160,160,255,0.04);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 24px rgba(120,130,255,0.04);
+      backdrop-filter: blur(6px);
+      animation: pageFade 900ms ease;
+    }
+
+    .page1-content h1 {
+      margin: 0 0 18px 0;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.6rem;
+      color: var(--accent-1, #9fa8ff);
+      text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
+      line-height: 1.02;
+      letter-spacing: 0.6px;
+    }
+
+    .page1-content h2 {
+      margin: 0 0 18px 0;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1.4rem;
+      color: var(--accent-1, #9fa8ff);
+      text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
+      line-height: 1.02;
+      letter-spacing: 0.6px;
+    }
+
+    .page1-content p {
+      color: #d9daff; /* matches column paragraph color */
+      line-height: 1.78;
+      font-size: 1.05rem;
+      margin: 14px 0;
+    }
+
+    /* subtle entry animation */
+    @keyframes pageFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* responsive spacing on small screens */
+    @media (max-width: 860px) {
+      .page1-content { margin: 70px 18px; padding: 26px; }
+      .page1-content h1 { font-size: 2.2rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background & particle canvas (same as index) -->
+  <div class="background"></div>
+  <canvas class="particles"></canvas>
+
+  <!-- Sidebar (same structure as index.html) -->
+  <aside class="sidebar" aria-label="Primary Navigation">
+    <h2>☽ Navigation ☾</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page1.html">UTS-1 All About Me 🌠</a></li>
+        <li><a href="page5.html">UTS-2 Songs for you💫</a></li>
+        <li><a href="page3.html">UTS-3 My Stories for You🌙</a></li>
+        <li><a href="page4.html">UTS-4 My Shape🔮</a></li>
+        <li><a href="page2.html">UTS-5 My Personal Review✨</a></li>
+        <li><a href="page6.html">UAS-1 My Concepts 🌠</a></li>
+        <li><a href="page7.html">UAS-2 My Opinions💫</a></li>
+        <li><a href="page8.html" class="active">UAS-3 My Innovations🌙</a></li>
+        <li><a href="page9.html">UAS-4 My Knowledges🔮</a></li>
+        <li><a href="page10.html">UAS-5 My Professional Review✨</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main content area (uses same .content from style.css) -->
+  <main class="content">
+    <section class="page1-content" role="article" aria-labelledby="page1-title">
+      <h1 id="page1-title">My Innovations</h1>
+      <h2 id="page1-subtitle">The Algorithm Who Hears</h2>
+      <p>
+        Inovasi yang saya bayangkan lahir dari keinginan sederhana, yakni bagaimana teknologi dapat benar-benar hadir untuk merawat, bukan sekadar menghitung. Berhasil untuk bisa
+        membuat perubahan yang nyata menggunakan AI. Jadilah sebuah konsep inovasi yang bernama “The Algorithm Who Hears”, sebuah sistem Artificial Intelligence yang dirancang bukan hanya untuk menganalisis, 
+        tetapi untuk mendengarkan. Sistem ini hadir sebagai pendamping awal dalam kesehatan, yang dapat diakses kapan saja dan di mana saja, terutama oleh mereka yang selama ini sulit menjangkau layanan medis. 
+        AI ini mampu melakukan diagnosa dasar dan memberikan saran medis awal secara hati-hati, sebagai bentuk pertolongan pertama yang manusiawi—bukan sebagai pengganti dokter, melainkan sebagai penghubung yang peduli.
+      </p>
+
+      <h2 id="page1-subtitle">Base Diagnose</h2>
+      <p>
+        Dalam prosesnya, AI ini tidak hanya membaca gejala fisik yang disampaikan, tetapi juga memahami konteks kehidupan pengguna: pola hidup, kondisi sosial ekonomi, serta kesehatan mental yang memengaruhi tubuh secara perlahan. 
+        Ketika terdeteksi adanya gejala yang berpotensi berkembang menjadi kondisi serius, sistem akan segera meneruskan informasi medis yang relevan kepada dokter sesungguhnya untuk asesmen lebih lanjut. Di sisi lain, untuk 
+        kasus yang tidak bersifat darurat, AI tetap memberikan diagnosa dasar, saran medis, dan rekomendasi obat yang memadai, dengan kesadaran bahwa hasil tersebut tetap perlu ditinjau oleh tenaga medis. Dengan pendekatan ini, 
+        pertolongan dapat hadir lebih cepat tanpa menghilangkan kehati-hatian.
+      </p>
+      <h2 id="page1-subtitle">Empathy and Privacy</h2>
+      <p>
+        Salah satu prinsip penting dalam inovasi ini adalah penghormatan terhadap ruang emosional pengguna. The Algorithm Who Hears menjadi tempat aman bagi individu untuk menumpahkan kekhawatiran dan beban mental mereka 
+        tanpa rasa takut dihakimi. AI hanya akan menyaring dan meneruskan informasi yang benar-benar relevan bagi kebutuhan kesehatan kepada dokter, sehingga tenaga medis dapat fokus pada aspek klinis, sementara sisi emosional 
+        pengguna tetap terlindungi kecuali memang dibutuhkan untuk proses penyembuhan. Bagi saya, ini adalah bentuk empati digital yang sering terlupakan dalam sistem kesehatan konvensional.
+      </p>
+      <h2 id="page1-subtitle">Area and Outside Factor Medical Crisis Prevention/Help</h2>
+      <p>
+        AI ini juga memiliki node point yang tersebar di berbagai wilayah dunia, yang mempertimbangkan faktor lingkungan, kondisi cuaca, dan pola penyakit lokal. Melalui pendekatan ini, sistem mampu memprediksi risiko 
+        penyakit lebih dini dan memberikan rekomendasi pencegahan yang realistis dan personal. Tujuannya bukan untuk menakut-nakuti pengguna dengan kemungkinan terburuk, melainkan untuk melindungi mereka secara perlahan 
+        sebelum kondisi memburuk—dengan bahasa yang tenang dan mudah dipahami.
+      </p>
+      <h2 id="page1-subtitle">Integrated System and Decentrallization of Medicine and Medical Workers</h2>
+      <p>
+        Lebih jauh, The Algorithm Who Hears menganalisis kebutuhan obat dan tingkat perawatan berdasarkan hasil diagnosis kolektif di suatu wilayah. Informasi ini kemudian diintegrasikan ke dalam sistem informasi 
+        kesehatan yang membantu distribusi tenaga medis dan obat-obatan secara lebih merata dan adil. Dengan demikian, sistem ini tidak hanya merawat individu, tetapi juga membantu menjaga keseimbangan layanan kesehatan 
+        di tingkat komunitas dan regional.
+      </p>
+      <h2 id="page1-subtitle">Catastrophic Health Expenditure</h2>
+      <p>
+        Salah satu inti terpenting dari inovasi ini adalah modul analisis risiko catastrophic health expenditure. AI membantu mengidentifikasi potensi beban biaya sejak dini dan mengarahkan individu maupun keluarga ke layanan yang 
+        lebih terjangkau, program bantuan, atau rujukan yang tepat. Bagi saya, menjaga kesehatan tidak boleh berarti mempertaruhkan masa depan ekonomi sebuah keluarga. Oleh karena itu, sistem ini berupaya melindungi tubuh sekaligus 
+        keberlangsungan hidup mereka yang rentan.
+      </p>
+      <h2 id="page1-subtitle">Help, Not Replace</h2>
+      <p>
+        Pada akhirnya, The Algorithm Who Hears tidak pernah dimaksudkan untuk menggantikan peran tenaga kesehatan. Inovasi ini dirancang untuk mendukung, memperkuat, dan meringankan beban mereka. 
+        Informasi yang dihasilkan AI disajikan sebagai bahan pertimbangan, sementara keputusan akhir tetap berada di tangan manusia. Dengan cara ini, empati, intuisi, dan nilai kemanusiaan tetap menjadi inti dari pelayanan kesehatan. 
+        Bagi saya, inilah bentuk teknologi yang ideal: teknologi yang cerdas, namun tetap rendah hati—hadir untuk mendengar, menjaga, dan menemani, bukan mengambil alih.
+      </p>
+    </section>
+  </main>
+
+  <!-- Starfield script (same as homepage) -->
+  <script>
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (ctx) {
+      let stars = [];
+      let mouse = { x: 0, y: 0 };
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          speed: Math.random() * 0.4 + 0.1,
+          twinkle: Math.random()
+        });
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach((star) => {
+          star.twinkle += 0.02;
+          const brightness = 0.7 + 0.3 * Math.sin(star.twinkle);
+          ctx.fillStyle = `rgba(255,255,255,${brightness})`;
+
+          const dx = (star.x - mouse.x) * 0.0005;
+          const dy = (star.y - mouse.y) * 0.0005;
+          star.x -= dx;
+          star.y -= dy;
+
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          star.y += star.speed;
+          if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+          }
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
+</body>
+</html>
