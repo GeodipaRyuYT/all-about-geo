@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Personal Review</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .sheet-content {
+      max-width: 900px;
+      margin: 90px auto;
+      padding: 36px;
+      text-align: center;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
+      border: 1px solid rgba(160,160,255,0.04);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 24px rgba(120,130,255,0.04);
+      backdrop-filter: blur(6px);
+      animation: pageFade 900ms ease;
+    }
+
+    .sheet-content h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.6rem;
+      color: var(--accent-1, #9fa8ff);
+      text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
+      margin-bottom: 20px;
+    }
+
+    .sheet-content p {
+      color: #d9daff;
+      line-height: 1.78;
+      font-size: 1.05rem;
+      margin: 0 auto 30px;
+      max-width: 700px;
+    }
+
+    /* ✨ Glowing floating sheet frame */
+    .sheet-frame {
+      position: relative;
+      display: inline-block;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(150,150,255,0.4);
+      background: rgba(10, 10, 30, 0.5);
+      animation: floatBox 6s ease-in-out infinite;
+    }
+
+    .sheet-frame::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(
+        60deg,
+        rgba(180,180,255,0.4),
+        rgba(100,100,255,0.3),
+        rgba(255,255,255,0.2),
+        rgba(120,120,255,0.4)
+      );
+      background-size: 400% 400%;
+      border-radius: 18px;
+      z-index: 1;
+      filter: blur(3px);
+      animation: glowMove 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    iframe {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 14px;
+      z-index: 2;
+      backdrop-filter: blur(4px);
+    }
+
+    @keyframes pageFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatBox {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes glowMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @media (max-width: 860px) {
+      .sheet-content { margin: 70px 18px; padding: 26px; }
+      .sheet-content h1 { font-size: 2.2rem; }
+      iframe { height: 360px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background"></div>
+  <canvas class="particles"></canvas>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>☽ Navigation ☾</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page1.html">UTS-1 All About Me 🌠</a></li>
+        <li><a href="page5.html">UTS-2 Songs for you💫</a></li>
+        <li><a href="page3.html">UTS-3 My Stories for You🌙</a></li>
+        <li><a href="page4.html">UTS-4 My Shape🔮</a></li>
+        <li><a href="page2.html">UTS-5 My Personal Review✨</a></li>
+        <li><a href="page6.html">UAS-1 My Concepts 🌠</a></li>
+        <li><a href="page7.html">UAS-2 My Opinions💫</a></li>
+        <li><a href="page8.html">UAS-3 My Innovations🌙</a></li>
+        <li><a href="page9.html">UAS-4 My Knowledges🔮</a></li>
+        <li><a href="page10.html" class="active">UAS-5 My Professional Review✨</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <section class="sheet-content">
+      <h1>Personal Review</h1>
+      <p>
+        Setelah terlaksanakannya UAS, sudah waktunya melakukan Professional review baik pada diri sendiri, maupun pada Peers saya. Berikut saya sampaikan
+        hasil analisis dan penilaian saya terhadap diri saya sendiri (dibantu AI) dan 3 Peer saya.
+      </p>
+
+      <div class="sheet-frame">
+        <!-- Replace the link below with your published Google Sheet link -->
+        <iframe 
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTd1FEFHK4EnUadcsVigvNqGMv9oiCO5DxYETX9of-TBit4QtVFBwY4JrIVLVU9U8tlKJhqjCkB4NLi/pubhtml">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 🌟 Starfield animation (same as home)
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (ctx) {
+      let stars = [];
+      let mouse = { x: 0, y: 0 };
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          speed: Math.random() * 0.4 + 0.1,
+          twinkle: Math.random()
+        });
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach((star) => {
+          star.twinkle += 0.02;
+          const brightness = 0.7 + 0.3 * Math.sin(star.twinkle);
+          ctx.fillStyle = `rgba(255,255,255,${brightness})`;
+
+          const dx = (star.x - mouse.x) * 0.0005;
+          const dy = (star.y - mouse.y) * 0.0005;
+          star.x -= dx;
+          star.y -= dy;
+
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          star.y += star.speed;
+          if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+          }
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
+</body>
+</html>
