@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Who am I?</title>
+
+  <!-- Main site stylesheet (must exist and be the one used by index.html) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Small page-specific styles that MATCH the main theme (no body overrides) -->
+  <style>
+    /* Keep font-family consistent with style.css */
+    .page1-content {
+      max-width: 900px;
+      margin: 90px auto;
+      padding: 36px;
+      text-align: left;
+      color: inherit; /* inherit the main theme color */
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
+      border: 1px solid rgba(160,160,255,0.04);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 24px rgba(120,130,255,0.04);
+      backdrop-filter: blur(6px);
+      animation: pageFade 900ms ease;
+    }
+
+    .page1-content h1 {
+      margin: 0 0 18px 0;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.6rem;
+      color: var(--accent-1, #9fa8ff);
+      text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
+      line-height: 1.02;
+      letter-spacing: 0.6px;
+    }
+
+    .page1-content h2 {
+      margin: 0 0 18px 0;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1.4rem;
+      color: var(--accent-1, #9fa8ff);
+      text-shadow: 0 0 12px rgba(159,168,255,0.28), 0 0 28px rgba(99,107,255,0.12);
+      line-height: 1.02;
+      letter-spacing: 0.6px;
+    }
+
+    .page1-content p {
+      color: #d9daff; /* matches column paragraph color */
+      line-height: 1.78;
+      font-size: 1.05rem;
+      margin: 14px 0;
+    }
+
+    /* subtle entry animation */
+    @keyframes pageFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* responsive spacing on small screens */
+    @media (max-width: 860px) {
+      .page1-content { margin: 70px 18px; padding: 26px; }
+      .page1-content h1 { font-size: 2.2rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background & particle canvas (same as index) -->
+  <div class="background"></div>
+  <canvas class="particles"></canvas>
+
+  <!-- Sidebar (same structure as index.html) -->
+  <aside class="sidebar" aria-label="Primary Navigation">
+    <h2>☽ Navigation ☾</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page1.html">UTS-1 All About Me 🌠</a></li>
+        <li><a href="page5.html">UTS-2 Songs for you💫</a></li>
+        <li><a href="page3.html">UTS-3 My Stories for You🌙</a></li>
+        <li><a href="page4.html">UTS-4 My Shape🔮</a></li>
+        <li><a href="page2.html">UTS-5 My Personal Review✨</a></li>
+        <li><a href="page6.html">UAS-1 My Concepts 🌠</a></li>
+        <li><a href="page7.html" class="active">UAS-2 My Opinions💫</a></li>
+        <li><a href="page8.html">UAS-3 My Innovations🌙</a></li>
+        <li><a href="page9.html">UAS-4 My Knowledges🔮</a></li>
+        <li><a href="page10.html">UAS-5 My Professional Review✨</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main content area (uses same .content from style.css) -->
+  <main class="content">
+    <section class="page1-content" role="article" aria-labelledby="page1-title">
+      <h1 id="page1-title">My Opinions</h1>
+      <h2 id="page1-subtitle">Masalah Kesehatan Global</h2>
+      <p>
+        Konsep yang saya miliki lahir dari kegelisahan sederhana, yakni melihat begitu banyak orang sakit, bukan karena penyakitnya terlalu kuat, tetapi karena sistem di sekitarnya terlalu lemah untuk menjangkau mereka. 
+        Laporan WHO dan Bank Dunia menunjukkan pada tahun 2021 ada 4,5 miliar orang yakni kurang lebih 50% penduduk bumi, belum terlayani oleh layanan kesehatan dasar secara penuh. Ini berarti setengah dari kita hidup
+        dengan kesulitan untuk sekedar mendapatkan perawatan, konsultasi atau bahkan obat-obatan dasar untuk melawan penyakit. Dan yang mendapatkanpun belum bisa dikatakan aman dengan 2 miliar orang diantara mereka 
+        menghadapi beban finansial ratusan juta. Mendorong mereka ke jurang kemiskinan karena membayar pengobatan dari kantong sendiri. 
+        Ketika membaca dan memahami hal ini, saya menyadari bahwa ketimpangan akses layanan kesehatan bukan sekadar angka statistik, melainkan cerita tentang individu, keluarga, dan harapan yang tertunda. 
+        Ada jutaan orang yang sebenarnya bisa ditolong lebih awal, seandainya informasi, layanan, dan keputusan medis dapat hadir tepat waktu.
+      </p>
+
+      <p>
+        Sebagai seseorang yang sangat peduli pada sesama, saya memandang teknologi, khususnya Artificial Intelligence, bukan sebagai sesuatu yang dingin dan mekanis, melainkan sebagai alat empati. 
+        AI mungkin memiliki kemampuan untuk melihat pola di balik data yang besar dan kompleks, namun bagi saya, ada juga makna yang jauh lebih manusiawi. 
+        AI dapat membantu sistem kesehatan “mendengar” mereka yang selama ini tak terdengar. 
+      </p>
+
+      <p>
+        Dengan itu, saya mulai memikirkan konsep "The Algorithm Who Hears", menggunakan sistem informasi dan AI, bukan untuk menggantikan peran tenaga medis, namun memperpanjang rangkulan mereka. Mencapai yang
+        tak terjangkau, baik dalam segi kemampuan fisik, biaya, ataupun mental. Membangun teknologi dengan "hati", memastikan tidak ada lagi orang yang harus memilih antara jatuh miskin atau tetap sakit. 
+        Bayangkan sebuah sistem AI yang memungkinkan seorang ibu di desa terpencil mendapatkan diagnosis awal setara dokter ahli hanya melalui ponsel pintar, atau algoritma cerdas yang memprediksi wabah 
+        penyakit menular sebelum menyebar luas, seperti pelajaran mahal yang kita dapat dari pandemi COVID-19. Teknologi ini akan kita gunakan untuk memangkas biaya logistik dan operasional yang selama ini membebani pasien, 
+        sehingga biaya kesehatan yang memiskinkan bisa kita hilangkan secara perlahan.
+      </p>
+
+      <p>
+        Lebih dari sekadar fisik, konsep ini juga saya rancang untuk peka terhadap isu kesehatan mental yang sering menghambat orang untuk mencari pertolongan. 
+        Saya ingin mengembangkan sistem berbasis AI yang mampu menjadi pendengar awal yang responsif dan tanpa penghakiman, memberikan tempat aman bagi jutaan orang yang selama ini 
+        menderita dalam diam dan memberikan mereka medical advice dan secara perlahan menghubungkan mereka dengan tenaga medis yang bisa membantu mereka. Selain itu, konsep ini saya
+        rancang untuk mengintegrasikan data lingkungan mengingat krisis iklim yang juga dapat berdampak pada kesehatan, untuk memberikan peringatan dini yang personal.
+      </p>
+        
+      <p>
+        Ini merupakan sebuah konsep, upaya kecil untuk menghadirkan kepedulian dalam bentuk yang nyata. Saya percaya bahwa ketika AI digunakan dengan nilai kemanusiaan, 
+        teknologi dapat menjadi bagian dari solusi atas masalah kesehatan global, membantu meringankan beban, memperluas akses, dan pada akhirnya, menjaga martabat manusia. 
+        Karena bagi saya, kesehatan bukan hanya tentang bertahan hidup, tetapi tentang memberi setiap orang kesempatan yang sama untuk hidup dengan layak.
+      </p>
+    </section>
+  </main>
+
+  <!-- Starfield script (same as homepage) -->
+  <script>
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (ctx) {
+      let stars = [];
+      let mouse = { x: 0, y: 0 };
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          speed: Math.random() * 0.4 + 0.1,
+          twinkle: Math.random()
+        });
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach((star) => {
+          star.twinkle += 0.02;
+          const brightness = 0.7 + 0.3 * Math.sin(star.twinkle);
+          ctx.fillStyle = `rgba(255,255,255,${brightness})`;
+
+          const dx = (star.x - mouse.x) * 0.0005;
+          const dy = (star.y - mouse.y) * 0.0005;
+          star.x -= dx;
+          star.y -= dy;
+
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          star.y += star.speed;
+          if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+          }
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
+</body>
+</html>
